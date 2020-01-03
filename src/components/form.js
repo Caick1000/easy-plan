@@ -1,25 +1,31 @@
 import React from 'react';
-import { TextField, IconButton, Button } from '@material-ui/core';
-import { withStyles } from '@material-ui/styles';
-import NavigateNextIcon from '@material-ui/icons/NavigateNext';
-import styles from './style';
+import PropTypes from 'prop-types';
+import './style.scss';
 
 
 const Form = (props) => {
-    const { classes, onClick } = props
+    const { id, type, onChange, value, placeholder } = props
     return (
-        <div className={styles.formWrapper}>
-            <form onSubmit={props.onSubmit}>
-                <TextField
-                  onChange={props.handleChange}
-                  placeholder='teste'
-                  InputProps={{ classes: {input: classes.input} }}/>
-                <IconButton variant='contained' label='submit' type='submit' color='primary' onClick={onClick}>
-                    <NavigateNextIcon style={{ color: 'white' }} />
-                </IconButton>
-            </form>
-        </div>
+           <textarea className='field'
+           id={id}
+           type={type}
+           type='text'
+           value={value}
+           placeholder={placeholder}
+           onChange={onChange}
+           />
     )
 };
 
-export default withStyles(styles)(Form);
+// Form.PropTypes ={
+//     id: PropTypes.string.isRequired,
+//     locked: PropTypes.bool,
+//     focussed: PropTypes.bool,
+//     value: PropTypes.string,
+//     error: PropTypes.string,
+//     placeholder: PropTypes.string,
+//     onChange: PropTypes.func
+
+// }
+
+export default Form
