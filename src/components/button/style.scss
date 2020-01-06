@@ -10,6 +10,11 @@
     border-radius: 18px;
     background-color: transparent;
     transition: opacity .1s ease-in-out;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
 }
 
 .mainButton:hover {

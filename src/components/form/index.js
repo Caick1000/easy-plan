@@ -3,13 +3,10 @@ import './style.scss';
 
 
 const Form = (props) => {
-    const { id, type, onChange, value, placeholder } = props
+    const { type='text', onChange, placeholder } = props
     return (
            <textarea className='field'
-           id={id}
            type={type}
-           type='text'
-           value={value}
            placeholder={placeholder}
            onChange={onChange}
            />

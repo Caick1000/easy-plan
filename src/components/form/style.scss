@@ -20,6 +20,10 @@
   -webkit-appearence: none;
 }
 
+.field::placeholder {
+  color: lightgray;
+}
+
 .field:hover {
   opacity: 1;
 }
