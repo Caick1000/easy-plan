@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './style.scss';
 
 
@@ -16,16 +15,5 @@ const Form = (props) => {
            />
     )
 };
-
-// Form.PropTypes ={
-//     id: PropTypes.string.isRequired,
-//     locked: PropTypes.bool,
-//     focussed: PropTypes.bool,
-//     value: PropTypes.string,
-//     error: PropTypes.string,
-//     placeholder: PropTypes.string,
-//     onChange: PropTypes.func
-
-// }
 
 export default Form
