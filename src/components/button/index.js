@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import './style.scss';
+import '../../sass/components/_button.scss'
 
 
 const Button = (props) => {

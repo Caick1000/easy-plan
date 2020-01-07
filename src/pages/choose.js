@@ -1,10 +1,10 @@
 import React from 'react';
 import Button from '../components/button';
-import './style.scss'
+import '../sass/pages/_choose.scss';
 
 const Choose = () => {
     return (
-        <div className='App-header'>
+        <div className='pageWrapper'>
             <h1>Choose your Business Plan project</h1>
             <p className='premium-note'>*complete only for premium accounts</p>
             <Button value='Single-page' />

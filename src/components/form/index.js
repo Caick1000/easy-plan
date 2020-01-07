@@ -1,5 +1,5 @@
 import React from 'react';
-import './style.scss';
+import '../../sass/components/_form.scss';
 
 
 const Form = (props) => {
