@@ -1,12 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-import '../../sass/components/_button.scss'
+import { Link } from 'react-router-dom';
 
 
-const Button = (props) => {
+const Button = ({ value, route }) => {
     return (
-        <Link to='/questions' className='mainButton'>
-            {props.value}
+        <Link to={route} className='mainButton'>
+            {value}
         </Link>
     )
 

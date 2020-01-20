@@ -1,17 +1,16 @@
-import React from 'react';
-import Button from '../components/button';
-import '../sass/pages/_choose.scss';
+import React from "react";
+import Button from "../components/button";
 
 const Choose = () => {
-    return (
-        <div className='pageWrapper'>
-            <h1>Choose your Business Plan project</h1>
-            <p className='premium-note'>*complete only for premium accounts</p>
-            <Button value='Single-page' />
-            <Button value='Complete' />
-            <Button value='Custom' />
-        </div>
-    );
-}
+  return (
+    <>
+      <h1>Choose your Business Plan project</h1>
+      <p className="premium-note">*complete only for premium accounts</p>
+      <Button value="Single-page" route="/single-page" />
+      <Button value="Complete" route="complete" />
+      <Button value="Custom" route="custom" />
+    </>
+  );
+};
 
 export default Choose;
