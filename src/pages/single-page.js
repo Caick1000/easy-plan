@@ -1,12 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Question from "../components/question";
-
-// GET to /questions to retrieve all the current questions for this specific page.
+import { getAllQuestions } from "../api/question";
 
 const SinglePage = () => {
+  const [allQuestions, setAllQuestions] = useState([]);
+
+  useEffect(() => {
+    async function requestAllQuestions() {
+      try {
+        const questions = await getAllQuestions();
+        console.log(questions.data.question, "jsjsjsjsjsjsjjs");
+        setAllQuestions(questions.data.question);
+      }
+      catch (error) {
+        console.log(error);
+      };
+    };
+    requestAllQuestions();
+  }, [allQuestions])
+
   return (
     <>
-      <Question placeholder="single-page test" header="Question 1" />
+      {allQuestions.map((question) => {
+        return <Question title={question.title} component={question.category.component} />
+      })}
     </>
   );
 };
