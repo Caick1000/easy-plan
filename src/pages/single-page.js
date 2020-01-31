@@ -9,7 +9,6 @@ const SinglePage = () => {
     async function requestAllQuestions() {
       try {
         const questions = await getAllQuestions();
-        console.log(questions.data.question, "jsjsjsjsjsjsjjs");
         setAllQuestions(questions.data.question);
       }
       catch (error) {
@@ -21,9 +20,9 @@ const SinglePage = () => {
 
   return (
     <>
-      {allQuestions.map((question) => {
-        return <Question title={question.title} component={question.category.component} />
-      })}
+      {allQuestions ? allQuestions.map((question, index) => {
+        return <Question title={question.title} component={question.category.component} key={index}/>
+      }) : null}
     </>
   );
 };

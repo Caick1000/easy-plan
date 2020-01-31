@@ -3,7 +3,7 @@ import React from "react";
 // Maybe use a GET to retrieve all the available types, this way it's more scalable.
 
 
-const Question = async (props) => {
+const Question = (props) => {
   const { title, description, component } = props;
   switch (component.toLowerCase()) {
     case "textarea":
