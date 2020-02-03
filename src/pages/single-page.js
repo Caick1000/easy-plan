@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Question from "../components/question";
 import { getAllQuestions } from "../api/question";
+import Question from "../components/question";
+import Header from "../components/header";
 
 const SinglePage = () => {
   const [allQuestions, setAllQuestions] = useState([]);
@@ -9,7 +10,7 @@ const SinglePage = () => {
     const requestAllQuestions = async () => {
       try {
         const questions = await getAllQuestions();
-        const planQuestions = questions.data.filter(question => question.planType.toLowerCase() === "sinple-page")
+        const planQuestions = questions.data.question.filter(item => item.planType.toLowerCase() === "single-page");
         setAllQuestions(planQuestions);
       }
       catch (error) {
@@ -21,9 +22,9 @@ const SinglePage = () => {
 
   return (
     <>
-      {allQuestions ? allQuestions.map((question, index) => {
+      {allQuestions.length ? allQuestions.map((question, index) => {
         return <Question title={question.title} component={question.category.component} key={index} />
-      }) : null}
+      }) : <Header title="You should not be seeing this..." description="Please enter in contact with the support team"/>}
     </>
   );
 };
