@@ -1,11 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Question from "../components/question";
+import { getAllQuestions } from "../api/question";
 
 const Complete = () => {
+  const [allQuestions, setAllQuestions] = useState([]);
+
+  useEffect(() => {
+    const requestAllQuestions = async () => {
+      try {
+        const questions = await getAllQuestions();
+        const planQuestions = questions.data.filter(question => question.planType.toLowerCase() === "complete")
+        setAllQuestions(planQuestions);
+      }
+      catch (error) {
+        console.log(error);
+      };
+    };
+    requestAllQuestions();
+  }, [allQuestions]);
+
   return (
     <>
-      <h1>Question 1</h1>
-      <Question placeholder="complete test" />
+      {allQuestions ? allQuestions.map((question, index) => {
+        return <Question title={question.title} component={question.category.component} key={index} />
+      }) : null}
     </>
   );
 };

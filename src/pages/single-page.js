@@ -6,22 +6,23 @@ const SinglePage = () => {
   const [allQuestions, setAllQuestions] = useState([]);
 
   useEffect(() => {
-    async function requestAllQuestions() {
+    const requestAllQuestions = async () => {
       try {
         const questions = await getAllQuestions();
-        setAllQuestions(questions.data.question);
+        const planQuestions = questions.data.filter(question => question.planType.toLowerCase() === "sinple-page")
+        setAllQuestions(planQuestions);
       }
       catch (error) {
         console.log(error);
       };
     };
     requestAllQuestions();
-  }, [allQuestions])
+  }, [allQuestions]);
 
   return (
     <>
       {allQuestions ? allQuestions.map((question, index) => {
-        return <Question title={question.title} component={question.category.component} key={index}/>
+        return <Question title={question.title} component={question.category.component} key={index} />
       }) : null}
     </>
   );
