@@ -5,7 +5,7 @@ import Header from "../header";
 
 
 const Question = (props) => {
-  const { title, description, component } = props;
+  const { title, description, component, values } = props;
   switch (component.toLowerCase()) {
     case "textarea":
       return (
@@ -15,6 +15,20 @@ const Question = (props) => {
             className="field"
             type="text"
           />
+        </>
+      )
+    case "radiobutton":
+      return (
+        <>
+          <Header title={title} />
+          {values ? values.map((item) => {
+            return (
+          <label class="container">{item}
+            <input type="checkbox" />
+            <span class="checkmark"></span>
+          </label>
+            )
+          }): null}
         </>
       )
     default:
