@@ -21,11 +21,11 @@ const Question = (props) => {
       return (
         <>
           <Header title={title} />
-          {values ? values.map((item) => {
+          {values ? values.map((item, index) => {
             return (
-          <label class="container">{item}
+          <label className="container" key={index}>{item}
             <input type="checkbox" />
-            <span class="checkmark"></span>
+            <span className="checkmark"></span>
           </label>
             )
           }): null}
