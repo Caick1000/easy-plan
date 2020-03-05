@@ -3,14 +3,14 @@ import { getAllQuestions } from "../api/question";
 import Question from "../components/question";
 import Header from "../components/header";
 
-const Complete = () => {
+const MultiPage = () => {
   const [allQuestions, setAllQuestions] = useState([]);
 
   useEffect(() => {
     const requestAllQuestions = async () => {
       try {
         const questions = await getAllQuestions();
-        const planQuestions = questions.data.question.filter(item => item.planType.toLowerCase() === "complete")
+        const planQuestions = questions.data.question.filter(item => item.planType.toLowerCase() === "multi-page")
         setAllQuestions(planQuestions);
       }
       catch (error) {
@@ -30,4 +30,4 @@ const Complete = () => {
   );
 };
 
-export default Complete;
+export default MultiPage;
