@@ -23,7 +23,8 @@ const Custom = () => {
   return (
     <>
       {allQuestions.length ? allQuestions.map((question, index) => {
-        return <Question title={question.title} component={question.component} key={index} values={question.values}/>
+        const { title, component, values } = question;
+        return <Question title={title} component={component} key={index} values={values}/>
       }) : <Header title="You should not be seeing this..." description="Please enter in contact with the support team"/>}
     </>
   );
