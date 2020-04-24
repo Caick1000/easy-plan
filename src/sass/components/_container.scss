@@ -1,11 +1,16 @@
 .pageWrapper {
-  background-color: #5a9cb8;
+  background-color: #1198C2;
+}
+
+.pageWrapperBg {
+  background: url('../../images/geometric-bg.png') no-repeat;
+  background-size: cover;
   min-height: 100vh;
   padding: 35px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 18px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: #fff;
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../header";
 // Organize different types of questions based on available types (textarea, basicInput, radio button, etc).
 // Maybe use a GET to retrieve all the available types, this way it's more scalable.
@@ -6,13 +6,30 @@ import Header from "../header";
 
 const Question = (props) => {
   const { title, description, component, values } = props;
+  const [value, setValue] = useState("");
+
   switch (component.toLowerCase()) {
+    case "input":
+      return (
+        <>
+        <div>
+        <Header title={title} description={description} />
+          <input
+            className="input"
+            style={value ? {opacity: 1} : {}}
+            onChange={event => setValue(event.target.value)}
+            type="text"
+          />
+        </div>
+        </>
+      )
     case "textarea":
       return (
         <>
           <Header title={title} description={description} />
           <textarea
-            className="field"
+            className="textArea"
+            onChange={event => setValue(event.target.value)}
             type="text"
           />
         </>
@@ -36,7 +53,7 @@ const Question = (props) => {
         <>
           <Header title={title} description={description} />
           <textarea
-            className="field"
+            className="input"
             type="text"
           />
         </>

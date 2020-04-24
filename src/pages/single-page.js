@@ -1,28 +1,53 @@
-import React, { useEffect, useState } from "react";
-import { getAllQuestions } from "../api/question";
+import React from "react";
 import Question from "../components/question";
 import Header from "../components/header";
 
 const SinglePage = () => {
-  const [allQuestions, setAllQuestions] = useState([]);
 
-  useEffect(() => {
-    const requestAllQuestions = async () => {
-      try {
-        const questions = await getAllQuestions();
-        const planQuestions = questions.data.question.filter(item => item.planType.toLowerCase() === "single-page");
-        setAllQuestions(planQuestions);
-      }
-      catch (error) {
-        console.log(error);
-      };
-    };
-    requestAllQuestions();
-  }, [allQuestions]);
+  const planQuestions = [{
+    "planType": "single-page",
+    "title": "Title of the question",
+    "Description": "Description",
+    "component": "input",
+    "values": "hello",
+    "section": "idea"
+},
+{
+  "planType": "single-page",
+  "title": "Title of the question 2",
+  "Description": "Description 2",
+  "component": "textArea",
+  "values": "hello 2",
+  "section": "idea"
+},
+{
+  "planType": "single-page",
+  "title": "Title of the question 2",
+  "Description": "Description 2",
+  "component": "textArea",
+  "values": "hello 2",
+  "section": "idea"
+},
+{
+  "planType": "single-page",
+  "title": "Title of the question 2",
+  "Description": "Description 2",
+  "component": "textArea",
+  "values": "hello 2",
+  "section": "idea"
+},
+{
+  "planType": "single-page",
+  "title": "Title of the question 2",
+  "Description": "Description 2",
+  "component": "textArea",
+  "values": "hello 2",
+  "section": "idea"
+}];
 
   return (
     <>
-      {allQuestions.length ? allQuestions.map((question, index) => {
+      {planQuestions.length ? planQuestions.map((question, index) => {
         const { title, component, values } = question;
         return <Question title={title} component={component} key={index} values={values} />
       }) : <Header title="You should not be seeing this..." description="Please enter in contact with the support team"/>}
