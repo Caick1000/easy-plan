@@ -12,40 +12,47 @@ const Question = (props) => {
     case "input":
       return (
         <>
-        <div>
-        <Header title={title} description={description} />
-          <input
-            className="input"
-            style={value ? {opacity: 1} : {}}
-            onChange={event => setValue(event.target.value)}
-            type="text"
-          />
-        </div>
+          <div className="componentWrapper">
+            <Header title={title} description={description} />
+            <input
+              className="input"
+              style={value ? { opacity: 1 } : {}}
+              onChange={event => setValue(event.target.value)}
+              type="text"
+            />
+          </div>
         </>
       )
     case "textarea":
       return (
         <>
-          <Header title={title} description={description} />
-          <textarea
-            className="textArea"
-            onChange={event => setValue(event.target.value)}
-            type="text"
-          />
+          <div className="componentWrapper">
+            <Header title={title} description={description} />
+            <textarea
+              className="textArea"
+              style={value ? { opacity: 1 } : {}}
+              onChange={event => setValue(event.target.value)}
+              type="text"
+            />
+          </div>
+
         </>
       )
     case "radiobutton":
       return (
         <>
-          <Header title={title} />
-          {values ? values.map((item, index) => {
-            return (
-          <label className="container" key={index}>{item}
-            <input type="checkbox" />
-            <span className="checkmark"></span>
-          </label>
-            )
-          }): null}
+          <div className="componentWrapper">
+            <Header title={title} />
+            {values ? values.map((item, index) => {
+              return (
+                <label className="container" key={index}>{item}
+                  <input type="checkbox" />
+                  <span className="checkmark"></span>
+                </label>
+              )
+            }) : null}
+          </div>
+
         </>
       )
     default:
